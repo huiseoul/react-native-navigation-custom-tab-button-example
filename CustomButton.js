@@ -1,3 +1,4 @@
+import { Navigation } from "react-native-navigation";
 import React, { Component } from "react";
 import {
   Dimensions,
@@ -24,7 +25,13 @@ export default class CustomButton extends Component {
   }
 
   alert = () => {
-    Alert.alert("Hello");
+    Navigation.dismissOverlay(this.props.componentId);
+
+    Navigation.showModal({
+      component: {
+        name: "example.App"
+      }
+    });
   };
 }
 
